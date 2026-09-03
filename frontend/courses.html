@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - AgentEd</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-agented sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="dashboard.html">
+                <i class="fas fa-brain me-2 fs-3" style="color: #38bdf8;"></i>
+                <span>AgentEd</span>
+            </a>
+            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#coursesNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="coursesNav">
+                <ul class="navbar-nav me-auto ms-lg-4 mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="courses.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="quiz.html">Quiz Agent</a></li>
+                    <li class="nav-item"><a class="nav-link" href="recommendations.html">Recommendations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="progress.html">Progress</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <span class="text-light small"><i class="fas fa-user-circle me-1" style="color:#38bdf8;"></i><span class="user-display-name text-light">Alex Rivera</span></span>
+                    <button class="btn btn-sm btn-agented-outline" onclick="App.logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="container py-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h2 class="font-heading mb-1"><i class="fas fa-graduation-cap text-danger me-2"></i>Course Catalog</h2>
+                <p class="text-muted mb-0">Explore interactive curriculum guided by TutorAgent and QuizAgent</p>
+            </div>
+        </div>
+
+        <!-- Catalog Container -->
+        <div class="row" id="coursesCatalog">
+            <!-- 1. Spring Boot 3 & JPA -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="glass-card h-100 d-flex flex-column">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" class="rounded mb-3" style="height: 160px; object-fit: cover;" alt="Mastering Spring Boot 3 & JPA">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="badge bg-indigo text-light px-2 py-1" style="background:#0284c7">Backend Development</span>
+                        <span class="badge bg-dark text-muted border border-secondary">Intermediate</span>
+                    </div>
+                    <h4 class="text-dark font-heading">Mastering Spring Boot 3 & JPA</h4>
+                    <p class="text-muted small flex-grow-1">Build enterprise microservices with Java, Spring Boot, and Spring Data JPA.</p>
+                    <div class="d-flex justify-content-between align-items-center border-top border-secondary pt-3 mt-2">
+                        <span class="text-muted small"><i class="far fa-clock me-1"></i>24 Hours</span>
+                        <button class="btn btn-sm btn-agented-primary" onclick="alert('Enrolled in Mastering Spring Boot 3 & JPA!')">Start Learning</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Multi-Agent AI Engineering -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="glass-card h-100 d-flex flex-column">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" class="rounded mb-3" style="height: 160px; object-fit: cover;" alt="Multi-Agent AI Engineering">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="badge bg-indigo text-light px-2 py-1" style="background:#0284c7">Artificial Intelligence</span>
+                        <span class="badge bg-dark text-muted border border-secondary">Advanced</span>
+                    </div>
+                    <h4 class="text-dark font-heading">Multi-Agent AI Engineering</h4>
+                    <p class="text-muted small flex-grow-1">Learn how to build collaborative AI agents using LLMs and modern frameworks.</p>
+                    <div class="d-flex justify-content-between align-items-center border-top border-secondary pt-3 mt-2">
+                        <span class="text-muted small"><i class="far fa-clock me-1"></i>18 Hours</span>
+                        <button class="btn btn-sm btn-agented-primary" onclick="alert('Enrolled in Multi-Agent AI Engineering!')">Start Learning</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Full Stack Web Architecture -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="glass-card h-100 d-flex flex-column">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" class="rounded mb-3" style="height: 160px; object-fit: cover;" alt="Full Stack Web Architecture">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="badge bg-indigo text-light px-2 py-1" style="background:#0284c7">Web Development</span>
+                        <span class="badge bg-dark text-muted border border-secondary">Beginner</span>
+                    </div>
+                    <h4 class="text-dark font-heading">Full Stack Web Architecture</h4>
+                    <p class="text-muted small flex-grow-1">Master HTML5, CSS3, JavaScript, RESTful APIs, and Bootstrap UI integration.</p>
+                    <div class="d-flex justify-content-between align-items-center border-top border-secondary pt-3 mt-2">
+                        <span class="text-muted small"><i class="far fa-clock me-1"></i>30 Hours</span>
+                        <button class="btn btn-sm btn-agented-primary" onclick="alert('Enrolled in Full Stack Web Architecture!')">Start Learning</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Data Structures & Algorithms in Java -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="glass-card h-100 d-flex flex-column">
+                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" class="rounded mb-3" style="height: 160px; object-fit: cover;" alt="Data Structures & Algorithms in Java">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="badge bg-indigo text-light px-2 py-1" style="background:#0284c7">Computer Science</span>
+                        <span class="badge bg-dark text-muted border border-secondary">Intermediate</span>
+                    </div>
+                    <h4 class="text-dark font-heading">Data Structures & Algorithms in Java</h4>
+                    <p class="text-muted small flex-grow-1">Deep dive into binary trees, graphs, sorting, and optimization.</p>
+                    <div class="d-flex justify-content-between align-items-center border-top border-secondary pt-3 mt-2">
+                        <span class="text-muted small"><i class="far fa-clock me-1"></i>35 Hours</span>
+                        <button class="btn btn-sm btn-agented-primary" onclick="alert('Enrolled in Data Structures & Algorithms!')">Start Learning</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Cloud Native Microservices & K8s -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="glass-card h-100 d-flex flex-column">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80" class="rounded mb-3" style="height: 160px; object-fit: cover;" alt="Cloud Native Microservices & K8s">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="badge bg-indigo text-light px-2 py-1" style="background:#0284c7">Cloud Computing</span>
+                        <span class="badge bg-dark text-muted border border-secondary">Advanced</span>
+                    </div>
+                    <h4 class="text-dark font-heading">Cloud Native Microservices & K8s</h4>
+                    <p class="text-muted small flex-grow-1">Deploy scalable cloud services with Docker, Kubernetes, and API Gateways.</p>
+                    <div class="d-flex justify-content-between align-items-center border-top border-secondary pt-3 mt-2">
+                        <span class="text-muted small"><i class="far fa-clock me-1"></i>28 Hours</span>
+                        <button class="btn btn-sm btn-agented-primary" onclick="alert('Enrolled in Cloud Native Microservices!')">Start Learning</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Cybersecurity & Spring Security 6 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="glass-card h-100 d-flex flex-column">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" class="rounded mb-3" style="height: 160px; object-fit: cover;" alt="Cybersecurity & Spring Security 6">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="badge bg-indigo text-light px-2 py-1" style="background:#0284c7">Security</span>
+                        <span class="badge bg-dark text-muted border border-secondary">Intermediate</span>
+                    </div>
+                    <h4 class="text-dark font-heading">Cybersecurity & Spring Security 6</h4>
+                    <p class="text-muted small flex-grow-1">Secure Spring Boot microservices with OAuth2, JWT tokens, and CORS protection.</p>
+                    <div class="d-flex justify-content-between align-items-center border-top border-secondary pt-3 mt-2">
+                        <span class="text-muted small"><i class="far fa-clock me-1"></i>20 Hours</span>
+                        <button class="btn btn-sm btn-agented-primary" onclick="alert('Enrolled in Cybersecurity & Spring Security 6!')">Start Learning</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Python for Data Science & ML -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="glass-card h-100 d-flex flex-column">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" class="rounded mb-3" style="height: 160px; object-fit: cover;" alt="Python for Data Science & ML">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="badge bg-indigo text-light px-2 py-1" style="background:#0284c7">Data Science</span>
+                        <span class="badge bg-dark text-muted border border-secondary">Beginner</span>
+                    </div>
+                    <h4 class="text-dark font-heading">Python for Data Science & ML</h4>
+                    <p class="text-muted small flex-grow-1">Master NumPy, Pandas, Scikit-Learn, and Neural Networks for predictive analytics.</p>
+                    <div class="d-flex justify-content-between align-items-center border-top border-secondary pt-3 mt-2">
+                        <span class="text-muted small"><i class="far fa-clock me-1"></i>32 Hours</span>
+                        <button class="btn btn-sm btn-agented-primary" onclick="alert('Enrolled in Python for Data Science & ML!')">Start Learning</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. DevOps Pipeline & CI/CD Mastery -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="glass-card h-100 d-flex flex-column">
+                    <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&w=600&q=80" class="rounded mb-3" style="height: 160px; object-fit: cover;" alt="DevOps Pipeline & CI/CD Mastery">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="badge bg-indigo text-light px-2 py-1" style="background:#0284c7">DevOps</span>
+                        <span class="badge bg-dark text-muted border border-secondary">Intermediate</span>
+                    </div>
+                    <h4 class="text-dark font-heading">DevOps Pipeline & CI/CD Mastery</h4>
+                    <p class="text-muted small flex-grow-1">Automate build, test, and release pipelines using GitHub Actions, Jenkins, and Terraform.</p>
+                    <div class="d-flex justify-content-between align-items-center border-top border-secondary pt-3 mt-2">
+                        <span class="text-muted small"><i class="far fa-clock me-1"></i>22 Hours</span>
+                        <button class="btn btn-sm btn-agented-primary" onclick="alert('Enrolled in DevOps Pipeline Mastery!')">Start Learning</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. React & Next.js Modern UI System -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="glass-card h-100 d-flex flex-column">
+                    <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=600&q=80" class="rounded mb-3" style="height: 160px; object-fit: cover;" alt="React & Next.js Modern UI System">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="badge bg-indigo text-light px-2 py-1" style="background:#0284c7">Web Development</span>
+                        <span class="badge bg-dark text-muted border border-secondary">Intermediate</span>
+                    </div>
+                    <h4 class="text-dark font-heading">React & Next.js Modern UI System</h4>
+                    <p class="text-muted small flex-grow-1">Build ultra-responsive web user interfaces with React 18, Next.js App Router, and Tailwind.</p>
+                    <div class="d-flex justify-content-between align-items-center border-top border-secondary pt-3 mt-2">
+                        <span class="text-muted small"><i class="far fa-clock me-1"></i>26 Hours</span>
+                        <button class="btn btn-sm btn-agented-primary" onclick="alert('Enrolled in React & Next.js Modern UI!')">Start Learning</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10. iOS & Flutter Cross-Platform Dev -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="glass-card h-100 d-flex flex-column">
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80" class="rounded mb-3" style="height: 160px; object-fit: cover;" alt="iOS & Flutter Cross-Platform Dev">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="badge bg-indigo text-light px-2 py-1" style="background:#0284c7">Mobile Development</span>
+                        <span class="badge bg-dark text-muted border border-secondary">Beginner</span>
+                    </div>
+                    <h4 class="text-dark font-heading">iOS & Flutter Cross-Platform Dev</h4>
+                    <p class="text-muted small flex-grow-1">Create native iOS and Android apps using Dart, Flutter SDK, and REST integration.</p>
+                    <div class="d-flex justify-content-between align-items-center border-top border-secondary pt-3 mt-2">
+                        <span class="text-muted small"><i class="far fa-clock me-1"></i>25 Hours</span>
+                        <button class="btn btn-sm btn-agented-primary" onclick="alert('Enrolled in iOS & Flutter Dev!')">Start Learning</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-agented text-center">
+        <div class="container">
+            <p class="mb-0">© 2026 AgentEd Platform. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS & App JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - AgentEd</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <!-- Navigation Bar with Logout -->
+    <nav class="navbar navbar-expand-lg navbar-agented sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="dashboard.html">
+                <i class="fas fa-brain me-2 fs-3" style="color: #38bdf8;"></i>
+                <span>AgentEd</span>
+            </a>
+            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#dashboardNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="dashboardNav">
+                <ul class="navbar-nav me-auto ms-lg-4 mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="dashboard.html"><i class="fas fa-chart-pie me-1"></i>Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="courses.html"><i class="fas fa-book-open me-1"></i>Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="quiz.html"><i class="fas fa-vial me-1"></i>Quiz Agent</a></li>
+                    <li class="nav-item"><a class="nav-link" href="recommendations.html"><i class="fas fa-compass me-1"></i>Recommendations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="progress.html"><i class="fas fa-line-chart me-1"></i>Progress</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <span class="text-light small"><i class="fas fa-user-circle me-1" style="color:#38bdf8;"></i><span class="user-display-name text-light">Alex Rivera</span></span>
+                    <button class="btn btn-sm btn-agented-outline" onclick="App.logout()"><i class="fas fa-sign-out-alt me-1"></i>Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Student Welcome Banner -->
+    <header class="py-4">
+        <div class="container">
+            <div class="glass-card p-4 d-flex flex-column flex-md-row align-items-md-center justify-content-between">
+                <div>
+                    <h2 class="mb-1 font-heading text-dark">Welcome back, <span class="user-display-name hero-highlight" style="color:#6d28d9;">Alex Rivera</span>! 👋</h2>
+                    <p class="text-muted mb-0">Goal Path: <strong class="text-dark">Spring Boot & Multi-Agent AI Systems</strong> | Active Learning Streak: <strong class="text-danger">7 Days 🔥</strong></p>
+                </div>
+                <div class="mt-3 mt-md-0 d-flex gap-2">
+                    <a href="quiz.html" class="btn btn-agented-primary btn-sm"><i class="fas fa-play me-1"></i>Take Daily Quiz</a>
+                    <a href="recommendations.html" class="btn btn-agented-outline btn-sm"><i class="fas fa-magic me-1"></i>View AI Recommendations</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="container pb-5">
+
+        <!-- 4 MAIN AI AGENT SECTIONS OVERVIEW GRID -->
+        <div class="row g-4 mb-4">
+            <!-- 1. AI Tutor Section -->
+            <div class="col-md-6 col-lg-3">
+                <div class="glass-card h-100">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="agent-badge badge-tutor"><i class="fas fa-robot me-1"></i>1. AI Tutor</span>
+                        <span class="badge bg-success bg-opacity-25 text-success">Active</span>
+                    </div>
+                    <h5 class="mb-2 text-dark font-heading">TutorAgent</h5>
+                    <p class="text-muted small mb-3">Answers concept questions & breaks down complex technical topics.</p>
+                    <a href="#aiTutorWidget" class="btn btn-sm btn-agented-outline w-100 mt-auto">Chat with Tutor</a>
+                </div>
+            </div>
+
+            <!-- 2. Quiz Agent Section -->
+            <div class="col-md-6 col-lg-3">
+                <div class="glass-card h-100">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="agent-badge badge-quiz"><i class="fas fa-vial me-1"></i>2. Quiz Agent</span>
+                        <span class="badge bg-warning bg-opacity-25 text-warning">Ready</span>
+                    </div>
+                    <h5 class="mb-2 text-dark font-heading">QuizAgent</h5>
+                    <p class="text-muted small mb-3">Generates dynamic quizzes and evaluates answers with explanations.</p>
+                    <a href="quiz.html" class="btn btn-sm btn-agented-outline w-100 mt-auto">Launch Quizzes</a>
+                </div>
+            </div>
+
+            <!-- 3. Recommendation Agent Section -->
+            <div class="col-md-6 col-lg-3">
+                <div class="glass-card h-100">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="agent-badge badge-rec"><i class="fas fa-compass me-1"></i>3. Recommendation</span>
+                        <span class="badge bg-info bg-opacity-25 text-info">Suggestions</span>
+                    </div>
+                    <h5 class="mb-2 text-dark font-heading">RecommendationAgent</h5>
+                    <p class="text-muted small mb-3">Custom course path matching your targeted learning goals.</p>
+                    <a href="recommendations.html" class="btn btn-sm btn-agented-outline w-100 mt-auto">View Courses</a>
+                </div>
+            </div>
+
+            <!-- 4. Progress Agent Section -->
+            <div class="col-md-6 col-lg-3">
+                <div class="glass-card h-100">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="agent-badge badge-progress"><i class="fas fa-line-chart me-1"></i>4. Progress Agent</span>
+                        <span class="badge bg-danger bg-opacity-25 text-danger">73.3% Complete</span>
+                    </div>
+                    <h5 class="mb-2 text-dark font-heading">ProgressAgent</h5>
+                    <p class="text-muted small mb-3">Calculates overall mastery index & identifies weak skill areas.</p>
+                    <a href="progress.html" class="btn btn-sm btn-agented-outline w-100 mt-auto">Check Analytics</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive AI Tutor Workspace & Progress Overview -->
+        <div class="row g-4 mb-4">
+            <!-- Interactive AI Tutor Panel -->
+            <div class="col-lg-7" id="aiTutorWidget">
+                <div class="glass-card h-100 d-flex flex-column">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="mb-0 font-heading text-dark"><i class="fas fa-comments text-danger me-2"></i>AI Tutor Workspace</h4>
+                        <span class="agent-badge badge-tutor">TutorAgent Interactive</span>
+                    </div>
+                    <div id="tutorChatContainer" class="chat-box flex-grow-1 mb-3">
+                        <div class="chat-bubble chat-bubble-agent">
+                            <div class="d-flex align-items-center mb-1">
+                                <span class="agent-badge badge-tutor me-2"><i class="fas fa-robot me-1"></i>TutorAgent</span>
+                                <small class="text-muted">System Agent</small>
+                            </div>
+                            Hello Alex! I am your personal AI Tutor. Ask me any question about <strong class="text-dark">Spring Boot, Microservices, Java, or Web Architecture</strong> and I will explain it!
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="tutorQueryInput" class="form-control form-control-agented" placeholder="Ask TutorAgent (e.g., 'What is @RestController in Spring Boot?')...">
+                        <button id="sendTutorQuery" class="btn btn-agented-primary"><i class="fas fa-paper-plane me-1"></i>Ask Agent</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Progress & Recent Activity -->
+            <div class="col-lg-5">
+                <div class="glass-card mb-4">
+                    <h5 class="mb-3 font-heading text-dark"><i class="fas fa-spinner text-warning me-2"></i>Course Progress</h5>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between small text-muted mb-1">
+                            <span class="fw-bold text-dark">Mastering Spring Boot 3</span>
+                            <span class="fw-bold text-dark">14 / 20 Lessons (70%)</span>
+                        </div>
+                        <div class="progress progress-agented">
+                            <div class="progress-bar progress-bar-glow" role="progressbar" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="d-flex justify-content-between small text-muted mb-1">
+                            <span class="fw-bold text-dark">Multi-Agent AI Engineering</span>
+                            <span class="fw-bold text-dark">8 / 18 Lessons (44%)</span>
+                        </div>
+                        <div class="progress progress-agented">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 44%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <h5 class="mb-3 font-heading text-dark"><i class="fas fa-history text-success me-2"></i>Recent Activity</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle bg-success bg-opacity-25 text-success p-2 me-3"><i class="fas fa-check"></i></div>
+                            <div>
+                                <h6 class="mb-0 small fw-bold text-dark">Passed Quiz #101</h6>
+                                <small class="text-muted">Spring Boot REST Controllers (Score 100%)</small>
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <div class="rounded-circle bg-danger bg-opacity-25 text-danger p-2 me-3"><i class="fas fa-book"></i></div>
+                            <div>
+                                <h6 class="mb-0 small fw-bold text-dark">Completed Lesson 14</h6>
+                                <small class="text-muted">Spring Data JPA Repositories</small>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommended Courses Section -->
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h3 class="font-heading mb-0 text-dark"><i class="fas fa-star text-warning me-2"></i>Recommended Courses</h3>
+                    <a href="courses.html" class="text-decoration-none small fw-bold text-danger">View Catalog <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+                <div class="row" id="dashboardCourses">
+                    <!-- Populated dynamically by app.js -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-agented text-center">
+        <div class="container">
+            <p class="mb-0">© 2026 AgentEd Platform. Multi-Agent AI Ecosystem for Personalized Learning.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS & App JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations - AgentEd</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-agented sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="dashboard.html">
+                <i class="fas fa-brain me-2 fs-3" style="color: #38bdf8;"></i>
+                <span>AgentEd</span>
+            </a>
+            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#recNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="recNav">
+                <ul class="navbar-nav me-auto ms-lg-4 mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="quiz.html">Quiz Agent</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="recommendations.html">Recommendations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="progress.html">Progress</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <span class="text-light small"><i class="fas fa-user-circle me-1" style="color:#38bdf8;"></i><span class="user-display-name text-light">Alex Rivera</span></span>
+                    <button class="btn btn-sm btn-agented-outline" onclick="App.logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="container py-4">
+        <div class="glass-card mb-4">
+            <div class="d-flex align-items-center mb-2">
+                <span class="agent-badge badge-rec me-2"><i class="fas fa-compass me-1"></i>RecommendationAgent Insights</span>
+            </div>
+            <h3 class="font-heading mb-2">Tailored Learning Path Recommendations</h3>
+            <p id="recInsights" class="text-muted mb-0">Analyzing your progress velocity and quiz history to curate high-impact courses...</p>
+        </div>
+
+        <div id="recContainer">
+            <!-- 1. Spring Boot 3 & JPA -->
+            <div class="glass-card mb-4">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" class="img-fluid rounded" style="height:120px; width:100%; object-fit:cover;" alt="Mastering Spring Boot 3 & JPA">
+                    </div>
+                    <div class="col-md-6 my-2 my-md-0">
+                        <div class="d-flex align-items-center mb-1">
+                            <span class="agent-badge badge-rec me-2"><i class="fas fa-magic me-1"></i>RecommendationAgent</span>
+                            <span class="text-success font-heading fw-bold fs-6">98% Match</span>
+                        </div>
+                        <h4 class="mb-1 text-dark font-heading">Mastering Spring Boot 3 & JPA</h4>
+                        <p class="text-muted small mb-0">Directly aligns with your Spring Boot target topic and backend goals.</p>
+                    </div>
+                    <div class="col-md-3 text-md-end">
+                        <a href="courses.html" class="btn btn-agented-primary">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Multi-Agent AI Engineering -->
+            <div class="glass-card mb-4">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" class="img-fluid rounded" style="height:120px; width:100%; object-fit:cover;" alt="Multi-Agent AI Engineering">
+                    </div>
+                    <div class="col-md-6 my-2 my-md-0">
+                        <div class="d-flex align-items-center mb-1">
+                            <span class="agent-badge badge-rec me-2"><i class="fas fa-magic me-1"></i>RecommendationAgent</span>
+                            <span class="text-success font-heading fw-bold fs-6">96% Match</span>
+                        </div>
+                        <h4 class="mb-1 text-dark font-heading">Multi-Agent AI Engineering</h4>
+                        <p class="text-muted small mb-0">High relevance for LLM agent integration & automated AI workflows.</p>
+                    </div>
+                    <div class="col-md-3 text-md-end">
+                        <a href="courses.html" class="btn btn-agented-primary">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Cybersecurity & Spring Security 6 -->
+            <div class="glass-card mb-4">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" class="img-fluid rounded" style="height:120px; width:100%; object-fit:cover;" alt="Cybersecurity & Spring Security 6">
+                    </div>
+                    <div class="col-md-6 my-2 my-md-0">
+                        <div class="d-flex align-items-center mb-1">
+                            <span class="agent-badge badge-rec me-2"><i class="fas fa-magic me-1"></i>RecommendationAgent</span>
+                            <span class="text-success font-heading fw-bold fs-6">94% Match</span>
+                        </div>
+                        <h4 class="mb-1 text-dark font-heading">Cybersecurity & Spring Security 6</h4>
+                        <p class="text-muted small mb-0">Recommended based on weak topics identified in recent security quizzes.</p>
+                    </div>
+                    <div class="col-md-3 text-md-end">
+                        <a href="courses.html" class="btn btn-agented-primary">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Cloud Native Microservices & K8s -->
+            <div class="glass-card mb-4">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80" class="img-fluid rounded" style="height:120px; width:100%; object-fit:cover;" alt="Cloud Native Microservices & K8s">
+                    </div>
+                    <div class="col-md-6 my-2 my-md-0">
+                        <div class="d-flex align-items-center mb-1">
+                            <span class="agent-badge badge-rec me-2"><i class="fas fa-magic me-1"></i>RecommendationAgent</span>
+                            <span class="text-success font-heading fw-bold fs-6">91% Match</span>
+                        </div>
+                        <h4 class="mb-1 text-dark font-heading">Cloud Native Microservices & K8s</h4>
+                        <p class="text-muted small mb-0">Complements your microservices mastery path with container orchestration.</p>
+                    </div>
+                    <div class="col-md-3 text-md-end">
+                        <a href="courses.html" class="btn btn-agented-primary">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Data Structures & Algorithms in Java -->
+            <div class="glass-card mb-4">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" class="img-fluid rounded" style="height:120px; width:100%; object-fit:cover;" alt="Data Structures & Algorithms in Java">
+                    </div>
+                    <div class="col-md-6 my-2 my-md-0">
+                        <div class="d-flex align-items-center mb-1">
+                            <span class="agent-badge badge-rec me-2"><i class="fas fa-magic me-1"></i>RecommendationAgent</span>
+                            <span class="text-success font-heading fw-bold fs-6">88% Match</span>
+                        </div>
+                        <h4 class="mb-1 text-dark font-heading">Data Structures & Algorithms in Java</h4>
+                        <p class="text-muted small mb-0">Strengthen core algorithmic efficiency for high-performance Java services.</p>
+                    </div>
+                    <div class="col-md-3 text-md-end">
+                        <a href="courses.html" class="btn btn-agented-primary">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Full Stack Web Architecture -->
+            <div class="glass-card mb-4">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" class="img-fluid rounded" style="height:120px; width:100%; object-fit:cover;" alt="Full Stack Web Architecture">
+                    </div>
+                    <div class="col-md-6 my-2 my-md-0">
+                        <div class="d-flex align-items-center mb-1">
+                            <span class="agent-badge badge-rec me-2"><i class="fas fa-magic me-1"></i>RecommendationAgent</span>
+                            <span class="text-success font-heading fw-bold fs-6">85% Match</span>
+                        </div>
+                        <h4 class="mb-1 text-dark font-heading">Full Stack Web Architecture</h4>
+                        <p class="text-muted small mb-0">Enhances frontend UI integration for Spring Boot REST endpoints.</p>
+                    </div>
+                    <div class="col-md-3 text-md-end">
+                        <a href="courses.html" class="btn btn-agented-primary">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. DevOps Pipeline & CI/CD Mastery -->
+            <div class="glass-card mb-4">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&w=600&q=80" class="img-fluid rounded" style="height:120px; width:100%; object-fit:cover;" alt="DevOps Pipeline & CI/CD Mastery">
+                    </div>
+                    <div class="col-md-6 my-2 my-md-0">
+                        <div class="d-flex align-items-center mb-1">
+                            <span class="agent-badge badge-rec me-2"><i class="fas fa-magic me-1"></i>RecommendationAgent</span>
+                            <span class="text-success font-heading fw-bold fs-6">83% Match</span>
+                        </div>
+                        <h4 class="mb-1 text-dark font-heading">DevOps Pipeline & CI/CD Mastery</h4>
+                        <p class="text-muted small mb-0">Automate your Spring Boot app deployments with GitHub Actions & Docker.</p>
+                    </div>
+                    <div class="col-md-3 text-md-end">
+                        <a href="courses.html" class="btn btn-agented-primary">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. React & Next.js Modern UI System -->
+            <div class="glass-card mb-4">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=600&q=80" class="img-fluid rounded" style="height:120px; width:100%; object-fit:cover;" alt="React & Next.js Modern UI System">
+                    </div>
+                    <div class="col-md-6 my-2 my-md-0">
+                        <div class="d-flex align-items-center mb-1">
+                            <span class="agent-badge badge-rec me-2"><i class="fas fa-magic me-1"></i>RecommendationAgent</span>
+                            <span class="text-success font-heading fw-bold fs-6">80% Match</span>
+                        </div>
+                        <h4 class="mb-1 text-dark font-heading">React & Next.js Modern UI System</h4>
+                        <p class="text-muted small mb-0">Expand full-stack capabilities with reactive component architecture.</p>
+                    </div>
+                    <div class="col-md-3 text-md-end">
+                        <a href="courses.html" class="btn btn-agented-primary">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. Python for Data Science & ML -->
+            <div class="glass-card mb-4">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" class="img-fluid rounded" style="height:120px; width:100%; object-fit:cover;" alt="Python for Data Science & ML">
+                    </div>
+                    <div class="col-md-6 my-2 my-md-0">
+                        <div class="d-flex align-items-center mb-1">
+                            <span class="agent-badge badge-rec me-2"><i class="fas fa-magic me-1"></i>RecommendationAgent</span>
+                            <span class="text-success font-heading fw-bold fs-6">78% Match</span>
+                        </div>
+                        <h4 class="mb-1 text-dark font-heading">Python for Data Science & ML</h4>
+                        <p class="text-muted small mb-0">Cross-discipline path for data analysis and ML model integration.</p>
+                    </div>
+                    <div class="col-md-3 text-md-end">
+                        <a href="courses.html" class="btn btn-agented-primary">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10. iOS & Flutter Cross-Platform Dev -->
+            <div class="glass-card mb-4">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80" class="img-fluid rounded" style="height:120px; width:100%; object-fit:cover;" alt="iOS & Flutter Cross-Platform Dev">
+                    </div>
+                    <div class="col-md-6 my-2 my-md-0">
+                        <div class="d-flex align-items-center mb-1">
+                            <span class="agent-badge badge-rec me-2"><i class="fas fa-magic me-1"></i>RecommendationAgent</span>
+                            <span class="text-success font-heading fw-bold fs-6">75% Match</span>
+                        </div>
+                        <h4 class="mb-1 text-dark font-heading">iOS & Flutter Cross-Platform Dev</h4>
+                        <p class="text-muted small mb-0">Build mobile frontends that consume your Spring Boot backend APIs.</p>
+                    </div>
+                    <div class="col-md-3 text-md-end">
+                        <a href="courses.html" class="btn btn-agented-primary">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-agented text-center">
+        <div class="container">
+            <p class="mb-0">© 2026 AgentEd Platform. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS & App JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

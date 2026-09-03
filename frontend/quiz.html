@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Agent - AgentEd</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-agented sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="dashboard.html">
+                <i class="fas fa-brain me-2 fs-3" style="color: #38bdf8;"></i>
+                <span>AgentEd</span>
+            </a>
+            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#quizNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="quizNav">
+                <ul class="navbar-nav me-auto ms-lg-4 mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="quiz.html">Quiz Agent</a></li>
+                    <li class="nav-item"><a class="nav-link" href="recommendations.html">Recommendations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="progress.html">Progress</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <span class="text-light small"><i class="fas fa-user-circle me-1" style="color:#38bdf8;"></i><span class="user-display-name text-light">Alex Rivera</span></span>
+                    <button class="btn btn-sm btn-agented-outline" onclick="App.logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Quiz Header -->
+    <div class="container py-4">
+        <div class="glass-card mb-4">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center">
+                <div>
+                    <span class="agent-badge badge-quiz mb-2 d-inline-block"><i class="fas fa-vial me-1"></i>AI Assessment System</span>
+                    <h2 class="font-heading mb-1">QuizAgent Engine</h2>
+                    <p class="text-muted mb-0">Dynamic adaptive quizzes designed to test and reinforce concept mastery.</p>
+                </div>
+                <div class="mt-3 mt-md-0">
+                    <button class="btn btn-agented-primary" onclick="initQuiz()"><i class="fas fa-sync-alt me-1"></i>Generate New Quiz</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Questions Container -->
+        <div id="quizContainer">
+            <!-- Question 1 -->
+            <div class="glass-card mb-4" id="quiz-card-101">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="agent-badge badge-quiz"><i class="fas fa-brain me-1"></i>QuizAgent Question 1</span>
+                    <span class="badge bg-secondary">Spring Boot</span>
+                </div>
+                <h5 class="fw-bold">Which annotation is used to mark a class as a REST Controller in Spring Boot?</h5>
+                <div class="mt-3">
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_101" id="q_101_A" value="A">
+                        <label class="form-check-label w-100 fw-bold" for="q_101_A"><strong>A.</strong> @Controller</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_101" id="q_101_B" value="B">
+                        <label class="form-check-label w-100 fw-bold" for="q_101_B"><strong>B.</strong> @RestController</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_101" id="q_101_C" value="C">
+                        <label class="form-check-label w-100 fw-bold" for="q_101_C"><strong>C.</strong> @Service</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_101" id="q_101_D" value="D">
+                        <label class="form-check-label w-100 fw-bold" for="q_101_D"><strong>D.</strong> @Component</label>
+                    </div>
+                </div>
+                <button class="btn btn-agented-primary mt-3" onclick="submitQuizAnswer(101)"><i class="fas fa-paper-plane me-1"></i>Submit Answer</button>
+                <div id="feedback-101" class="mt-3"></div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="glass-card mb-4" id="quiz-card-102">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="agent-badge badge-quiz"><i class="fas fa-brain me-1"></i>QuizAgent Question 2</span>
+                    <span class="badge bg-secondary">Spring Boot</span>
+                </div>
+                <h5 class="fw-bold">What is the default embedded web server in Spring Boot applications?</h5>
+                <div class="mt-3">
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_102" id="q_102_A" value="A">
+                        <label class="form-check-label w-100 fw-bold" for="q_102_A"><strong>A.</strong> Jetty</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_102" id="q_102_B" value="B">
+                        <label class="form-check-label w-100 fw-bold" for="q_102_B"><strong>B.</strong> GlassFish</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_102" id="q_102_C" value="C">
+                        <label class="form-check-label w-100 fw-bold" for="q_102_C"><strong>C.</strong> Tomcat</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_102" id="q_102_D" value="D">
+                        <label class="form-check-label w-100 fw-bold" for="q_102_D"><strong>D.</strong> Undertow</label>
+                    </div>
+                </div>
+                <button class="btn btn-agented-primary mt-3" onclick="submitQuizAnswer(102)"><i class="fas fa-paper-plane me-1"></i>Submit Answer</button>
+                <div id="feedback-102" class="mt-3"></div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="glass-card mb-4" id="quiz-card-103">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="agent-badge badge-quiz"><i class="fas fa-brain me-1"></i>QuizAgent Question 3</span>
+                    <span class="badge bg-secondary">Spring Data JPA</span>
+                </div>
+                <h5 class="fw-bold">Which repository interface provides standard CRUD and pagination operations out of the box?</h5>
+                <div class="mt-3">
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_103" id="q_103_A" value="A">
+                        <label class="form-check-label w-100 fw-bold" for="q_103_A"><strong>A.</strong> JpaRepository</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_103" id="q_103_B" value="B">
+                        <label class="form-check-label w-100 fw-bold" for="q_103_B"><strong>B.</strong> EntityServices</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_103" id="q_103_C" value="C">
+                        <label class="form-check-label w-100 fw-bold" for="q_103_C"><strong>C.</strong> QueryBuilder</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_103" id="q_103_D" value="D">
+                        <label class="form-check-label w-100 fw-bold" for="q_103_D"><strong>D.</strong> OrmManager</label>
+                    </div>
+                </div>
+                <button class="btn btn-agented-primary mt-3" onclick="submitQuizAnswer(103)"><i class="fas fa-paper-plane me-1"></i>Submit Answer</button>
+                <div id="feedback-103" class="mt-3"></div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="glass-card mb-4" id="quiz-card-104">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="agent-badge badge-quiz"><i class="fas fa-brain me-1"></i>QuizAgent Question 4</span>
+                    <span class="badge bg-secondary">Spring Boot Config</span>
+                </div>
+                <h5 class="fw-bold">Which human-readable data format is commonly used alongside .properties files for application configuration?</h5>
+                <div class="mt-3">
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_104" id="q_104_A" value="A">
+                        <label class="form-check-label w-100 fw-bold" for="q_104_A"><strong>A.</strong> XML (.xml)</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_104" id="q_104_B" value="B">
+                        <label class="form-check-label w-100 fw-bold" for="q_104_B"><strong>B.</strong> YAML (.yaml or .yml)</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_104" id="q_104_C" value="C">
+                        <label class="form-check-label w-100 fw-bold" for="q_104_C"><strong>C.</strong> JSON (.json)</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_104" id="q_104_D" value="D">
+                        <label class="form-check-label w-100 fw-bold" for="q_104_D"><strong>D.</strong> INI (.ini)</label>
+                    </div>
+                </div>
+                <button class="btn btn-agented-primary mt-3" onclick="submitQuizAnswer(104)"><i class="fas fa-paper-plane me-1"></i>Submit Answer</button>
+                <div id="feedback-104" class="mt-3"></div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="glass-card mb-4" id="quiz-card-105">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="agent-badge badge-quiz"><i class="fas fa-brain me-1"></i>QuizAgent Question 5</span>
+                    <span class="badge bg-secondary">Dependency Injection</span>
+                </div>
+                <h5 class="fw-bold">Which Spring annotation automatically injects bean dependencies into constructors or fields?</h5>
+                <div class="mt-3">
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_105" id="q_105_A" value="A">
+                        <label class="form-check-label w-100 fw-bold" for="q_105_A"><strong>A.</strong> @InjectBean</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_105" id="q_105_B" value="B">
+                        <label class="form-check-label w-100 fw-bold" for="q_105_B"><strong>B.</strong> @Autowired</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_105" id="q_105_C" value="C">
+                        <label class="form-check-label w-100 fw-bold" for="q_105_C"><strong>C.</strong> @Connect</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_105" id="q_105_D" value="D">
+                        <label class="form-check-label w-100 fw-bold" for="q_105_D"><strong>D.</strong> @ResourceBind</label>
+                    </div>
+                </div>
+                <button class="btn btn-agented-primary mt-3" onclick="submitQuizAnswer(105)"><i class="fas fa-paper-plane me-1"></i>Submit Answer</button>
+                <div id="feedback-105" class="mt-3"></div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="glass-card mb-4" id="quiz-card-106">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="agent-badge badge-quiz"><i class="fas fa-brain me-1"></i>QuizAgent Question 6</span>
+                    <span class="badge bg-secondary">Microservices</span>
+                </div>
+                <h5 class="fw-bold">Which Netflix Spring Cloud module acts as a service discovery registry for microservices?</h5>
+                <div class="mt-3">
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_106" id="q_106_A" value="A">
+                        <label class="form-check-label w-100 fw-bold" for="q_106_A"><strong>A.</strong> Eureka Server</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_106" id="q_106_B" value="B">
+                        <label class="form-check-label w-100 fw-bold" for="q_106_B"><strong>B.</strong> Spring Batch</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_106" id="q_106_C" value="C">
+                        <label class="form-check-label w-100 fw-bold" for="q_106_C"><strong>C.</strong> Hibernate Validator</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_106" id="q_106_D" value="D">
+                        <label class="form-check-label w-100 fw-bold" for="q_106_D"><strong>D.</strong> Thymeleaf Engine</label>
+                    </div>
+                </div>
+                <button class="btn btn-agented-primary mt-3" onclick="submitQuizAnswer(106)"><i class="fas fa-paper-plane me-1"></i>Submit Answer</button>
+                <div id="feedback-106" class="mt-3"></div>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="glass-card mb-4" id="quiz-card-107">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="agent-badge badge-quiz"><i class="fas fa-brain me-1"></i>QuizAgent Question 7</span>
+                    <span class="badge bg-secondary">Spring Security</span>
+                </div>
+                <h5 class="fw-bold">Which bean configuration interface is used in Spring Security 6+ to specify HTTP endpoint security rules?</h5>
+                <div class="mt-3">
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_107" id="q_107_A" value="A">
+                        <label class="form-check-label w-100 fw-bold" for="q_107_A"><strong>A.</strong> SecurityFilterChain</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_107" id="q_107_B" value="B">
+                        <label class="form-check-label w-100 fw-bold" for="q_107_B"><strong>B.</strong> WebAuthManager</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_107" id="q_107_C" value="C">
+                        <label class="form-check-label w-100 fw-bold" for="q_107_C"><strong>C.</strong> GuardFilter</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_107" id="q_107_D" value="D">
+                        <label class="form-check-label w-100 fw-bold" for="q_107_D"><strong>D.</strong> AccessController</label>
+                    </div>
+                </div>
+                <button class="btn btn-agented-primary mt-3" onclick="submitQuizAnswer(107)"><i class="fas fa-paper-plane me-1"></i>Submit Answer</button>
+                <div id="feedback-107" class="mt-3"></div>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="glass-card mb-4" id="quiz-card-108">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="agent-badge badge-quiz"><i class="fas fa-brain me-1"></i>QuizAgent Question 8</span>
+                    <span class="badge bg-secondary">RESTful API Design</span>
+                </div>
+                <h5 class="fw-bold">Which HTTP method should be used when applying partial updates to an existing resource?</h5>
+                <div class="mt-3">
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_108" id="q_108_A" value="A">
+                        <label class="form-check-label w-100 fw-bold" for="q_108_A"><strong>A.</strong> GET</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_108" id="q_108_B" value="B">
+                        <label class="form-check-label w-100 fw-bold" for="q_108_B"><strong>B.</strong> POST</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_108" id="q_108_C" value="C">
+                        <label class="form-check-label w-100 fw-bold" for="q_108_C"><strong>C.</strong> PUT</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_108" id="q_108_D" value="D">
+                        <label class="form-check-label w-100 fw-bold" for="q_108_D"><strong>D.</strong> PATCH</label>
+                    </div>
+                </div>
+                <button class="btn btn-agented-primary mt-3" onclick="submitQuizAnswer(108)"><i class="fas fa-paper-plane me-1"></i>Submit Answer</button>
+                <div id="feedback-108" class="mt-3"></div>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="glass-card mb-4" id="quiz-card-109">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="agent-badge badge-quiz"><i class="fas fa-brain me-1"></i>QuizAgent Question 9</span>
+                    <span class="badge bg-secondary">Multi-Agent AI</span>
+                </div>
+                <h5 class="fw-bold">In a Multi-Agent AI system, what primary task is a Planner Agent responsible for?</h5>
+                <div class="mt-3">
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_109" id="q_109_A" value="A">
+                        <label class="form-check-label w-100 fw-bold" for="q_109_A"><strong>A.</strong> Directly writing SQL data to storage</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_109" id="q_109_B" value="B">
+                        <label class="form-check-label w-100 fw-bold" for="q_109_B"><strong>B.</strong> Decomposing complex goals into sequential step-by-step sub-tasks</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_109" id="q_109_C" value="C">
+                        <label class="form-check-label w-100 fw-bold" for="q_109_C"><strong>C.</strong> Rendering CSS stylesheets on front-end pages</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_109" id="q_109_D" value="D">
+                        <label class="form-check-label w-100 fw-bold" for="q_109_D"><strong>D.</strong> Handling operating system thread scheduling</label>
+                    </div>
+                </div>
+                <button class="btn btn-agented-primary mt-3" onclick="submitQuizAnswer(109)"><i class="fas fa-paper-plane me-1"></i>Submit Answer</button>
+                <div id="feedback-109" class="mt-3"></div>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="glass-card mb-4" id="quiz-card-110">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="agent-badge badge-quiz"><i class="fas fa-brain me-1"></i>QuizAgent Question 10</span>
+                    <span class="badge bg-secondary">Spring Boot Monitoring</span>
+                </div>
+                <h5 class="fw-bold">Which Spring Boot starter provides operational metrics, health checks, and environment info endpoints?</h5>
+                <div class="mt-3">
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_110" id="q_110_A" value="A">
+                        <label class="form-check-label w-100 fw-bold" for="q_110_A"><strong>A.</strong> spring-boot-starter-actuator</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_110" id="q_110_B" value="B">
+                        <label class="form-check-label w-100 fw-bold" for="q_110_B"><strong>B.</strong> spring-boot-starter-metrics</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_110" id="q_110_C" value="C">
+                        <label class="form-check-label w-100 fw-bold" for="q_110_C"><strong>C.</strong> spring-boot-starter-health</label>
+                    </div>
+                    <div class="form-check p-3 mb-2 rounded border" style="cursor:pointer;">
+                        <input class="form-check-input ms-1 me-3" type="radio" name="quiz_110" id="q_110_D" value="D">
+                        <label class="form-check-label w-100 fw-bold" for="q_110_D"><strong>D.</strong> spring-boot-starter-devtools</label>
+                    </div>
+                </div>
+                <button class="btn btn-agented-primary mt-3" onclick="submitQuizAnswer(110)"><i class="fas fa-paper-plane me-1"></i>Submit Answer</button>
+                <div id="feedback-110" class="mt-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-agented text-center">
+        <div class="container">
+            <p class="mb-0">© 2026 AgentEd Platform. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS & App JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
